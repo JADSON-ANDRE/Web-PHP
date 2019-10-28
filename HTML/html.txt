@@ -1,4 +1,5 @@
 ## Definindo um título para a aba do navegador
+<!-- Comandos básicos -->
 <head>
 	<title>Título no navegador</title>
 <head>
