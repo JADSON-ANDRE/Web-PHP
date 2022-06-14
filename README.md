@@ -1,6 +1,7 @@
 # Repositório de Estudos
+  
+  # PHP
   # HTML
   # CSS
-  # PHP
-  # Laravel
+
 # Web-PHP
