@@ -7,6 +7,7 @@ o sistema fará a aloção na categoria correspondente, são elas:
 
     Ex.: Pedro tem 15 anos.         Saída: Pedro (Adolescente) -->
 <?php
+session_start();
 
 $categorias = [];
 $categorias[] = 'Infant';
@@ -15,14 +16,16 @@ $categorias[] = 'Adult';
 
 // print_r($categorias);
 
-$name = 'Pedro';
-$age = 10;
+$name = $_POST['name'];
+$age = $_POST['age'];
 $msgSuccess = 'REGISTRATION COMPLETED!';
 $msgError = 'REGISTRATION ERROR!!! -- Come back in a few years';
 echo $name . ' - ' . $age . ' years old.  ';
 
 if ($age > 0 && $age <=5) {
-    print_r($msgError);
+    $_SESSION['error message'] = 'REGISTRATION ERROR!!! -- Come back in a few years';
+    // print_r($msgError);
+    header('location: form.php');
 } else if ($age >= 6 && $age <=12) {
     echo nl2br("Cat.: " . $categorias[0] . ".    \n\n");
     print_r($msgSuccess);
@@ -33,7 +36,9 @@ if ($age > 0 && $age <=5) {
     echo nl2br("Cat.: " . $categorias[2] . ".    \n\n");
     print_r($msgSuccess);
 } else {
-    print_r('INVALID VALUE - TRY AGAIN!');
+    $_SESSION['error message'] = 'INVALID VALUE - TRY AGAIN!';
+    // print_r('INVALID VALUE - TRY AGAIN!');
+    header('location: form.php');
 }
 
 ?>
